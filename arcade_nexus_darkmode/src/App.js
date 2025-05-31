@@ -5,22 +5,35 @@ import Header from './Header';
 import NavBar from './NavBar';
 import WelcomeSection from './WelcomeSection';
 import AboutBox from './AboutBox';
+import BackgroundVideo from './BackgroundVideo';
 
 // PUBLIC_INTERFACE
 /**
  * Main container for Arcade Nexus DarkMode.
  * Vertically stacks Header, NavBar, WelcomeSection, and AboutBox, all centered.
+ * Renders a full-page background video behind all content.
  */
 function App() {
   return (
-    <div className="app" style={{ background: '#000', minHeight: '100vh' }}>
-      <Header />
-      <NavBar />
-      <main style={{ flex: '1 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <WelcomeSection />
-        <AboutBox />
-      </main>
-    </div>
+    <>
+      <BackgroundVideo />
+      <div
+        className="app"
+        style={{
+          background: 'none',
+          minHeight: '100vh',
+          position: 'relative',
+          zIndex: 1 // Ensure this content appears above the background video
+        }}
+      >
+        <Header />
+        <NavBar />
+        <main style={{ flex: '1 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <WelcomeSection />
+          <AboutBox />
+        </main>
+      </div>
+    </>
   );
 }
 
