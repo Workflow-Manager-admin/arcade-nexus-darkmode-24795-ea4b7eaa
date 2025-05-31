@@ -133,6 +133,59 @@ body {
   background: var(--secondary);
 }
 
+/* NAV-BAR BUTTON STYLE */
+.nav-btn {
+  display: inline-block;
+  font-family: var(--font-stack);
+  font-size: 1.13rem;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  background: #18181a;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  border-radius: 27px;
+  padding: 10px 32px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+  letter-spacing: 0.10em;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 0.14s,
+    background 0.18s,
+    border-color 0.17s,
+    box-shadow 0.2s;
+  margin: 0 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-btn:focus {
+  border-color: #ff8300;
+  box-shadow: 0 0 0 2.7px #ff830080;
+  color: #ff8300;
+  outline: none;
+}
+
+.nav-btn:hover,
+.nav-btn:active {
+  background: #222228;
+  color: #ff8300;
+  border-color: #ff8300;
+  text-decoration: none;
+}
+
+/* Extra guarantee of horizontal & centered nav layout for new .nav-btn style */
+.arcade-nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 /* WELCOME SECTION */
 .welcome-section {
   display: flex;
