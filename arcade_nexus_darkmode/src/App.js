@@ -7,6 +7,7 @@ import WelcomeSection from './WelcomeSection';
 import AboutBox from './AboutBox';
 import BackgroundVideo from './BackgroundVideo';
 import StorePage from './StorePage';
+import PurchasePage from './PurchasePage';
 import { Routes, Route } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
@@ -55,6 +56,7 @@ function App() {
               }
             />
             <Route path="/store" element={<StorePage />} />
+            <Route path="/purchase" element={<PurchasePage />} />
           </Routes>
         </main>
       </div>
