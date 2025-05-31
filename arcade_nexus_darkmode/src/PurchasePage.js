@@ -162,7 +162,7 @@ function PurchasePage() {
                 onChange={handleChange}
                 required
                 style={radioInputStyle}
-              /> Male
+              />{' '}Male
             </label>
             <label style={radioLabelStyle}>
               <input
@@ -173,7 +173,7 @@ function PurchasePage() {
                 onChange={handleChange}
                 required
                 style={radioInputStyle}
-              /> Female
+              />{' '}Female
             </label>
             <label style={radioLabelStyle}>
               <input
@@ -184,7 +184,7 @@ function PurchasePage() {
                 onChange={handleChange}
                 required
                 style={radioInputStyle}
-              /> Other
+              />{' '}Other
             </label>
           </div>
         </div>
