@@ -1,19 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
 /**
  * PurchasePage component for Arcade Nexus.
- * Reads the game name from the URL (?game=...) and displays the purchasing screen.
- * Provides a user-friendly message if game is not specified.
+ * Renders purchase form with name, date of birth, gender, email, address, and game selector.
+ * Game dropdown preselects the game passed via ?game=... in the URL.
+ * Form styled dark and modern, all Times New Roman.
  */
+const GAME_LIST = [
+  "Neon Drift",
+  "Pixel Samurai",
+  "Starlight Odyssey",
+  "Cosmo Blaster",
+  "Abyss Runner",
+  "Synthwave Racer",
+  "Galactic Sorcery",
+  "Bitverse Quest",
+  "Shadow Protocol",
+  "Arc Zenith"
+];
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 function PurchasePage() {
   const query = useQuery();
-  const game = query.get('game');
+  // Default to the game user just clicked 'Buy Now' for
+  const initialGame = (() => {
+    const param = query.get('game');
+    if (param && GAME_LIST.includes(param)) return param;
+    // fallback to first in list if missing or tampered
+    return GAME_LIST[0];
+  })();
+
+  const [form, setForm] = useState({
+    name: '',
+    dob: '',
+    gender: '',
+    email: '',
+    address: '',
+    game: initialGame,
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+    // For demo, just show an alert with form data.
+    alert(
+      "Purchase submitted!
+
+" +
+      `Name: ${form.name}
+` +
+      `Date of Birth: ${form.dob}
+` +
+      `Gender: ${form.gender}
+` +
+      `Email: ${form.email}
+` +
+      `Home Address: ${form.address}
+` +
+      `Game: ${form.game}`
+    );
+  }
 
   return (
     <section
@@ -21,97 +81,247 @@ function PurchasePage() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '45vh',
+        minHeight: '55vh',
         width: '100vw',
         fontFamily: "'Times New Roman', Times, serif",
-        padding: '64px 10vw 32px 10vw',
+        padding: '54px 0 22px 0',
         boxSizing: 'border-box'
       }}
     >
       <h2
         style={{
           color: '#fff',
-          fontSize: '2.1rem',
+          fontSize: '2.04rem',
           fontWeight: 800,
           margin: '0 0 22px 0',
-          letterSpacing: '1.6px',
-          fontFamily: "'Times New Roman', Times, serif"
+          letterSpacing: '1.5px'
         }}
       >
         Purchase Game
       </h2>
-      {game ? (
-        <div
-          style={{
-            background: 'rgba(32,13,48,0.94)',
-            border: '2.7px solid #ae36ffb0',
-            borderRadius: '22px',
-            boxShadow: '0 3px 28px rgba(172,36,255,0.19)',
-            padding: '34px 22px',
-            maxWidth: 420,
-            width: '100%',
-            textAlign: 'center'
-          }}
-        >
-          <p
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          background: 'rgba(24,18,27,0.97)',
+          border: '2.4px solid #ae36ff90',
+          borderRadius: '22px',
+          boxShadow: '0 3px 28px rgba(172,36,255,0.15)',
+          padding: '37px 26px 30px 26px',
+          maxWidth: 455,
+          width: '100%',
+          color: '#fff',
+          fontFamily: "'Times New Roman', Times, serif",
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+        }}
+        autoComplete="off"
+      >
+        {/* Name */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <label htmlFor="name" style={labelStyle}>Full Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            value={form.name}
+            onChange={handleChange}
+            style={inputStyle}
+            placeholder="Enter your name"
+            autoComplete="name"
+          />
+        </div>
+
+        {/* Date of Birth */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <label htmlFor="dob" style={labelStyle}>Date of Birth</label>
+          <input
+            id="dob"
+            name="dob"
+            type="date"
+            required
+            value={form.dob}
+            onChange={handleChange}
+            style={inputStyle}
+            max={new Date().toISOString().split('T')[0]}
+            autoComplete="bday"
+          />
+        </div>
+
+        {/* Gender */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <label style={labelStyle}>Gender</label>
+          <div style={{ display: 'flex', gap: 22, marginTop: 4 }}>
+            <label style={radioLabelStyle}>
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                checked={form.gender === "Male"}
+                onChange={handleChange}
+                required
+                style={radioInputStyle}
+              /> Male
+            </label>
+            <label style={radioLabelStyle}>
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                checked={form.gender === "Female"}
+                onChange={handleChange}
+                required
+                style={radioInputStyle}
+              /> Female
+            </label>
+            <label style={radioLabelStyle}>
+              <input
+                type="radio"
+                name="gender"
+                value="Other"
+                checked={form.gender === "Other"}
+                onChange={handleChange}
+                required
+                style={radioInputStyle}
+              /> Other
+            </label>
+          </div>
+        </div>
+
+        {/* Email */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <label htmlFor="email" style={labelStyle}>Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            value={form.email}
+            onChange={handleChange}
+            style={inputStyle}
+            placeholder="your@email.com"
+            autoComplete="email"
+          />
+        </div>
+
+        {/* Home Address */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <label htmlFor="address" style={labelStyle}>Home Address</label>
+          <textarea
+            id="address"
+            name="address"
+            required
+            value={form.address}
+            onChange={handleChange}
             style={{
-              color: 'rgba(255,255,255,0.97)',
-              fontSize: '1.19rem',
+              ...inputStyle,
+              minHeight: 54,
+              resize: 'vertical'
+            }}
+            placeholder="Enter your address"
+            autoComplete="street-address"
+          />
+        </div>
+
+        {/* Game selection */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <label htmlFor="game" style={labelStyle}>Select Game</label>
+          <select
+            id="game"
+            name="game"
+            required
+            value={form.game}
+            onChange={handleChange}
+            style={{
+              ...inputStyle,
+              appearance: 'none',
+              backgroundImage: 'linear-gradient(90deg, #24001c 60%, #21134c 90%)'
+            }}
+          >
+            {GAME_LIST.map((g) => (
+              <option value={g} key={g}>{g}</option>
+            ))}
+          </select>
+        </div>
+        {/* Submit Button */}
+        <button
+          type="submit"
+          style={{
+            fontFamily: "'Times New Roman', Times, serif",
+            fontWeight: 700,
+            fontSize: "1.09rem",
+            color: "#fff",
+            background: "linear-gradient(96deg, #ff3a98 35%, #ae36ff 100%)",
+            border: "none",
+            borderRadius: "18px",
+            padding: "10px 30px",
+            marginTop: "14px",
+            cursor: "pointer",
+            boxShadow: "0 0 7px 0 #fb00ff28",
+            letterSpacing: "0.11em",
+            outline: "none",
+            transition: "background 0.13s, color 0.13s, box-shadow 0.13s"
+          }}
+          tabIndex={0}
+          aria-label="Submit purchase form"
+        >
+          Submit Purchase
+        </button>
+        {submitted &&
+          <div
+            style={{
+              marginTop: '13px',
+              color: '#ffe133',
               fontWeight: 600,
-              marginBottom: 16
+              fontSize: '1rem',
+              textAlign: 'center',
+              letterSpacing: '0.05em'
             }}
           >
-            <span style={{ color: '#ffe133', letterSpacing: '0.08em', fontWeight: 700 }}>{game}</span>
-            <br />
-            is ready for purchase! Complete your checkout below.
-          </p>
-          {/* Placeholder for future payment form or instructions */}
-          <button
-            style={{
-              fontFamily: "'Times New Roman', Times, serif",
-              fontWeight: 700,
-              fontSize: "1.07rem",
-              color: "#fff",
-              background: "linear-gradient(96deg, #ff3a98 35%, #ae36ff 100%)",
-              border: "none",
-              borderRadius: "18px",
-              padding: "8.5px 30px",
-              margin: "22px 0 0 0",
-              cursor: "pointer",
-              boxShadow: "0 0 7px 0 #fb00ff28",
-              letterSpacing: "0.11em",
-              outline: "none",
-              transition: "background 0.13s, color 0.13s, box-shadow 0.13s"
-            }}
-            tabIndex={0}
-            aria-label={`Confirm purchase of ${game}`}
-            disabled
-          >
-            Confirm Purchase (Coming Soon)
-          </button>
-        </div>
-      ) : (
-        <div
-          style={{
-            background: 'rgba(44,19,29,0.86)',
-            border: '2.7px solid #ff3a98bb',
-            borderRadius: '18px',
-            padding: '28px 22px',
-            color: '#fff',
-            maxWidth: 370,
-            width: '100%',
-            textAlign: 'center',
-            fontWeight: 600,
-            letterSpacing: '0.08em',
-            fontSize: '1.09rem'
-          }}
-        >
-          No game selected. Please return to the <a href="/store" style={{ color: '#ffe133', textDecoration: 'underline' }}>Store</a>.
-        </div>
-      )}
+            Thank you for your purchase submission!
+          </div>
+        }
+      </form>
     </section>
   );
 }
+
+// Styling helpers for input/label - matches dark modern style
+const inputStyle = {
+  fontFamily: "'Times New Roman', Times, serif",
+  background: "linear-gradient(90deg, #1e1d2b 65%, #231d39 100%)",
+  color: "#fff",
+  fontSize: "1.06rem",
+  padding: "8px 12px",
+  border: "2px solid #aa40ff8c",
+  borderRadius: "11px",
+  outline: "none",
+  fontWeight: 500,
+  letterSpacing: "0.04em",
+  boxSizing: "border-box",
+  transition: "border 0.13s, box-shadow 0.13s",
+  marginTop: "1.5px"
+};
+const labelStyle = {
+  color: "#f9f9f9",
+  fontFamily: "'Times New Roman', Times, serif",
+  fontWeight: 700,
+  letterSpacing: "0.06em",
+  fontSize: "1.04rem",
+  marginBottom: "1px"
+};
+const radioLabelStyle = {
+  fontFamily: "'Times New Roman', Times, serif",
+  fontSize: "1.00rem",
+  color: "#f2dfff",
+  fontWeight: 500,
+  cursor: "pointer",
+  marginRight: "18px"
+};
+const radioInputStyle = {
+  accentColor: "#ff3a98",
+  marginRight: 6,
+};
 
 export default PurchasePage;
