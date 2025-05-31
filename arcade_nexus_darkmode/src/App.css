@@ -16,7 +16,9 @@
 body {
   margin: 0;
   font-family: var(--font-stack);
-  background-color: var(--primary);
+  /* Set cyberpunk image as the page background, covering viewport, fixed, fallback to #19182B */
+  background: #19182B url('/sample_cyberpunk.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: var(--accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,6 +26,9 @@ body {
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.08em;
   min-height: 100vh;
+  /* Ensure content overlays background cleanly */
+  position: relative;
+  z-index: 1;
 }
 
 /* MAIN CONTAINER STRUCTURE */
