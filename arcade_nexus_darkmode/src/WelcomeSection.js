@@ -23,7 +23,8 @@ function WelcomeSection() {
           fontSize: '2.2rem',
           fontWeight: 800,
           margin: '0 0 20px 0',
-          letterSpacing: '1.5px'
+          letterSpacing: '1.5px',
+          fontFamily: "'Times New Roman', Times, serif"
         }}
       >
         Welcome to Arcade Nexus
@@ -34,7 +35,8 @@ function WelcomeSection() {
           fontSize: '1.25rem',
           fontWeight: 400,
           maxWidth: 600,
-          margin: 0
+          margin: 0,
+          fontFamily: "'Times New Roman', Times, serif"
         }}
       >
         Your digital home for classic and modern games. Explore a universe of arcade excitement and nostalgia.
