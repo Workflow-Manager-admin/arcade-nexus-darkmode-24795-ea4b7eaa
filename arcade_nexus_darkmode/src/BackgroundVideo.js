@@ -1,11 +1,14 @@
 import React from 'react';
 
-// PUBLIC_INTERFACE
 /**
+ * PUBLIC_INTERFACE
  * Renders a full-page, fixed, looping, muted background video.
  * The video will cover the entire viewport and sit behind all content.
+ * To work, 'controllervid.mp4' must be placed in the 'public' directory (not /src), 
+ * as React static assets must be served from 'public'. Move/copy controllervid.mp4 there.
  */
 function BackgroundVideo() {
+  // This uses the correct public URL for the video asset.
   return (
     <video
       autoPlay
