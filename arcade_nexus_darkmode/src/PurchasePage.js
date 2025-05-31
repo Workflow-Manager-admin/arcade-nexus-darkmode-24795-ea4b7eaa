@@ -58,20 +58,14 @@ function PurchasePage() {
     e.preventDefault();
     setSubmitted(true);
     alert(
-      "Purchase submitted!
+      `Purchase submitted!
 
-" +
-      "Name: " + form.name + "
-" +
-      "Date of Birth: " + form.dob + "
-" +
-      "Gender: " + form.gender + "
-" +
-      "Email: " + form.email + "
-" +
-      "Home Address: " + form.address + "
-" +
-      "Game: " + form.game
+Name: ${form.name}
+Date of Birth: ${form.dob}
+Gender: ${form.gender}
+Email: ${form.email}
+Home Address: ${form.address}
+Game: ${form.game}`
     );
   }
 
