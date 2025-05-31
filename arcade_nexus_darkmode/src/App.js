@@ -6,13 +6,14 @@ import NavBar from './NavBar';
 import WelcomeSection from './WelcomeSection';
 import AboutBox from './AboutBox';
 import BackgroundVideo from './BackgroundVideo';
+import StorePage from './StorePage';
+import { Routes, Route } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
 /**
  * Main container for Arcade Nexus DarkMode.
- * Vertically stacks Header, NavBar, WelcomeSection, and AboutBox, all centered.
- * Renders a full-page background image for the app root, but allows the background video to sit below it if both are present.
- * Header area always has solid black background above background image or video.
+ * Always shows background, Header, and NavBar at the top.
+ * Content below is swapped via router (Home: WelcomeSection/AboutBox, Store: StorePage).
  * All text uses Times New Roman.
  */
 function App() {
@@ -43,8 +44,18 @@ function App() {
           alignItems: 'center',
           fontFamily: "'Times New Roman', Times, serif"
         }}>
-          <WelcomeSection />
-          <AboutBox />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <WelcomeSection />
+                  <AboutBox />
+                </>
+              }
+            />
+            <Route path="/store" element={<StorePage />} />
+          </Routes>
         </main>
       </div>
     </>
