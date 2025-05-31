@@ -5,7 +5,8 @@
   --accent: #fff;
 
   /* Typography & structure */
-  --font-stack: 'Poppins', 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  /* OVERRIDE: Change global font family to Times New Roman, per subtask */
+  --font-stack: 'Times New Roman', Times, serif;
   --font-weight-bold: 800;
   --font-weight-semibold: 700;
   --font-weight-medium: 500;
