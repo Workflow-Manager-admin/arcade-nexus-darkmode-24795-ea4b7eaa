@@ -9,54 +9,54 @@ import { useNavigate } from 'react-router-dom';
  */
 const sampleGames = [
   {
-    name: "Neon Drift",
-    price: 499,
-    img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400&q=80"
+    name: "Call of Duty: Black Ops 6",
+    price: 3999,
+    img: "https://staticg.sportskeeda.com/editor/2023/11/74a7a-17014556043360-1920.jpg"
   },
   {
-    name: "Pixel Samurai",
-    price: 349,
-    img: "https://images.unsplash.com/photo-1486607306179-71310663aace?auto=format&fit=crop&w=400&q=80"
+    name: "FIFA 23",
+    price: 2999,
+    img: "https://cdn1.epicgames.com/638faef43b624d97b8202d274187318f/offer/EGS_FIFA23StandardEdition_EACanada_S1_2560x1440-c759c80d2ab9429d4f295dfba4bb57e1.jpg"
   },
   {
-    name: "Starlight Odyssey",
-    price: 699,
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+    name: "Fortnite",
+    price: 0,
+    img: "https://cdn2.unrealengine.com/Fortnite%2Fblog%2Fseason-x-is-here%2F10BR_Launch_Cinematic_Still_3-1920x1080-a0726c6e6c2d5c960c5cd3b63c03a3b7fb836ecc.jpg"
   },
   {
-    name: "Cosmo Blaster",
-    price: 299,
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80"
+    name: "Froza Horizon 6",
+    price: 4999,
+    img: "https://assets-prd.ignimgs.com/2023/06/11/forzahorizon6-1686500179107.jpg"
   },
   {
-    name: "Abyss Runner",
-    price: 599,
-    img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+    name: "Genshin Impact",
+    price: 0,
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/1677740/header.jpg"
   },
   {
-    name: "Synthwave Racer",
-    price: 399,
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+    name: "Gta V",
+    price: 1999,
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg"
   },
   {
-    name: "Galactic Sorcery",
-    price: 550,
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    name: "MINECRAFT",
+    price: 1699,
+    img: "https://www.minecraft.net/content/dam/archive/92db31d89d662c6c3a3ed7ac860551fa-Minecraft-Key-Art.jpg"
   },
   {
-    name: "Bitverse Quest",
-    price: 299,
-    img: "https://images.unsplash.com/photo-1508766206392-8bd5cf550d1d?auto=format&fit=crop&w=400&q=80"
+    name: "Mortal Kombat",
+    price: 3499,
+    img: "https://assets-prd.ignimgs.com/2023/05/18/mortalkombat1-1684418362870.jpg"
   },
   {
-    name: "Shadow Protocol",
-    price: 499,
-    img: "https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=400&q=80"
+    name: "Roblox",
+    price: 0,
+    img: "https://static-cdn.jtvnw.net/ttv-boxart/roblox-285x380.jpg"
   },
   {
-    name: "Arc Zenith",
-    price: 799,
-    img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=400&q=80"
+    name: "Black Myth: Wukong",
+    price: 4999,
+    img: "https://cdn.cloudflare.steamstatic.com/steam/apps/1594920/header.jpg"
   },
 ];
 
