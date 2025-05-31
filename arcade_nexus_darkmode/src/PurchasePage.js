@@ -4,9 +4,7 @@ import { useLocation } from 'react-router-dom';
 // PUBLIC_INTERFACE
 /**
  * PurchasePage component for Arcade Nexus.
- * Renders purchase form with name, date of birth, gender, email, address, and game selector.
- * Game dropdown preselects the game passed via ?game=... in the URL.
- * Form styled dark and modern, all Times New Roman.
+ * Displays a styled purchase form for user and pre-selects the chosen game.
  */
 const GAME_LIST = [
   "Neon Drift",
@@ -27,11 +25,9 @@ function useQuery() {
 
 function PurchasePage() {
   const query = useQuery();
-  // Default to the game user just clicked 'Buy Now' for
   const initialGame = (() => {
     const param = query.get('game');
     if (param && GAME_LIST.includes(param)) return param;
-    // fallback to first in list if missing or tampered
     return GAME_LIST[0];
   })();
 
@@ -56,21 +52,13 @@ function PurchasePage() {
   function handleSubmit(e) {
     e.preventDefault();
     setSubmitted(true);
-    // For demo, just show an alert with form data.
     alert(
-      "Purchase submitted!
-
-" +
-      `Name: ${form.name}
-` +
-      `Date of Birth: ${form.dob}
-` +
-      `Gender: ${form.gender}
-` +
-      `Email: ${form.email}
-` +
-      `Home Address: ${form.address}
-` +
+      "Purchase submitted!\n\n" +
+      `Name: ${form.name}\n` +
+      `Date of Birth: ${form.dob}\n` +
+      `Gender: ${form.gender}\n` +
+      `Email: ${form.email}\n` +
+      `Home Address: ${form.address}\n` +
       `Game: ${form.game}`
     );
   }
@@ -189,7 +177,6 @@ function PurchasePage() {
             </label>
           </div>
         </div>
-
         {/* Email */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <label htmlFor="email" style={labelStyle}>Email Address</label>
@@ -205,7 +192,6 @@ function PurchasePage() {
             autoComplete="email"
           />
         </div>
-
         {/* Home Address */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <label htmlFor="address" style={labelStyle}>Home Address</label>
@@ -224,7 +210,6 @@ function PurchasePage() {
             autoComplete="street-address"
           />
         </div>
-
         {/* Game selection */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <label htmlFor="game" style={labelStyle}>Select Game</label>
@@ -288,7 +273,7 @@ function PurchasePage() {
   );
 }
 
-// Styling helpers for input/label - matches dark modern style
+// Input/label styles
 const inputStyle = {
   fontFamily: "'Times New Roman', Times, serif",
   background: "linear-gradient(90deg, #1e1d2b 65%, #231d39 100%)",
