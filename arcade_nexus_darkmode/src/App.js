@@ -16,6 +16,7 @@ import BackgroundVideo from './BackgroundVideo';
 function App() {
   return (
     <>
+      {/* Renders the universal background video (always underneath app content) */}
       <BackgroundVideo />
       <div
         className="app"
@@ -23,7 +24,7 @@ function App() {
           background: 'none',
           minHeight: '100vh',
           position: 'relative',
-          zIndex: 1 // Ensure this content appears above the background video
+          zIndex: 1 // Ensure main app content is above the video
         }}
       >
         <Header />
