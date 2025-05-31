@@ -31,7 +31,8 @@ function AboutBox() {
             fontWeight: 700,
             fontSize: '1.65rem',
             margin: '0 0 16px 0',
-            letterSpacing: '1px'
+            letterSpacing: '1px',
+            fontFamily: "'Times New Roman', Times, serif"
           }}
         >
           About us
@@ -42,7 +43,8 @@ function AboutBox() {
             fontSize: '1.09rem',
             fontWeight: 450,
             margin: 0,
-            lineHeight: 1.7
+            lineHeight: 1.7,
+            fontFamily: "'Times New Roman', Times, serif"
           }}
         >
           At Arcade Nexus, we celebrate the spirit of gaming with a curated selection of retro arcades, indie gems, and blockbuster hits. Our mission is to deliver joy and nostalgia to players everywhere — with instant digital delivery, stellar customer support, and a passion for the gaming community.
