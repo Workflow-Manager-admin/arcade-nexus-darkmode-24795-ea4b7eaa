@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
 /**
  * NavBar component for Arcade Nexus.
  * Renders a centered navigation bar below the header.
- * Links are placeholders (no routing).
+ * Uses NavLink from React Router for SPA navigation with Times New Roman font.
  */
 function NavBar() {
   return (
@@ -14,22 +15,29 @@ function NavBar() {
     >
       <ul className="arcade-nav-list">
         <li>
-          <a
-            href="#"
-            className="nav-btn"
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `nav-btn arcade-nav-link${isActive ? ' active' : ''}`
+            }
             tabIndex={0}
+            style={{ fontFamily: "'Times New Roman', Times, serif" }}
           >
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            href="#"
-            className="nav-btn"
+          <NavLink
+            to="/store"
+            className={({ isActive }) =>
+              `nav-btn arcade-nav-link${isActive ? ' active' : ''}`
+            }
             tabIndex={0}
+            style={{ fontFamily: "'Times New Roman', Times, serif" }}
           >
             Store
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
