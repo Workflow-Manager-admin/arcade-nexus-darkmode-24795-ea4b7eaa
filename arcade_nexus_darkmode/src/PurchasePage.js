@@ -60,18 +60,18 @@ function PurchasePage() {
     alert(
       "Purchase submitted!
 
-"
-      + `Name: ${form.name}
-`
-      + `Date of Birth: ${form.dob}
-`
-      + `Gender: ${form.gender}
-`
-      + `Email: ${form.email}
-`
-      + `Home Address: ${form.address}
-`
-      + `Game: ${form.game}`
+" +
+      "Name: " + form.name + "
+" +
+      "Date of Birth: " + form.dob + "
+" +
+      "Gender: " + form.gender + "
+" +
+      "Email: " + form.email + "
+" +
+      "Home Address: " + form.address + "
+" +
+      "Game: " + form.game
     );
   }
 
