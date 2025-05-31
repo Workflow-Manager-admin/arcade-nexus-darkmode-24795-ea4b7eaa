@@ -219,6 +219,7 @@ body {
   text-align: center;
   width: 100vw;
   box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif !important;
 }
 
 .welcome-heading {
