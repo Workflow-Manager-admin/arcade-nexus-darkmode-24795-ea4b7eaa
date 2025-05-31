@@ -61,6 +61,8 @@ const sampleGames = [
 ];
 
 function StorePage() {
+  const navigate = useNavigate();
+
   return (
     <section
       style={{
@@ -213,7 +215,11 @@ function StorePage() {
                 }}
                 tabIndex={0}
                 aria-label={`Buy ${name} now for ₹${price}`}
-                onClick={() => { /* Future: Show purchase form or start checkout */ }}
+                onClick={() => {
+                  // Navigates to purchase route with game name param
+                  const paramName = encodeURIComponent(name);
+                  navigate(`/purchase?game=${paramName}`);
+                }}
               >
                 Buy Now
               </button>
