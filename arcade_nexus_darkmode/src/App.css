@@ -16,9 +16,8 @@
 body {
   margin: 0;
   font-family: var(--font-stack);
-  /* Set cyberpunk image as the page background, covering viewport, fixed, fallback to #19182B */
-  background: #19182B url('sample_cyberpunk.jpg') no-repeat center center fixed;
-  background-size: cover;
+  /* Set fallback solid color only. Image handled in App.js inline for correct PUBLIC_URL resolution */
+  background: #19182B;
   color: var(--accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -21,7 +21,13 @@ function App() {
       <div
         className="app"
         style={{
-          background: 'none',
+          // Inline cyberpunk background using PUBLIC_URL so Create React App resolves it correctly
+          backgroundImage: `url(${process.env.PUBLIC_URL}/sample_cyberpunk.jpg)`,
+          backgroundColor: '#19182B',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
           minHeight: '100vh',
           position: 'relative',
           zIndex: 1 // Ensure main app content is above the video
