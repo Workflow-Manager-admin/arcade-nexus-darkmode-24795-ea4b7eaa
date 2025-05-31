@@ -11,16 +11,16 @@ import { useLocation } from 'react-router-dom';
  * Submitting the form triggers an alert confirmation (demo only).
  */
 const GAME_LIST = [
-  "Neon Drift",
-  "Pixel Samurai",
-  "Starlight Odyssey",
-  "Cosmo Blaster",
-  "Abyss Runner",
-  "Synthwave Racer",
-  "Galactic Sorcery",
-  "Bitverse Quest",
-  "Shadow Protocol",
-  "Arc Zenith"
+  "Call of Duty: Black Ops 6",
+  "FIFA 23",
+  "Fortnite",
+  "Froza Horizon 6",
+  "Genshin Impact",
+  "Gta V",
+  "MINECRAFT",
+  "Mortal Kombat",
+  "Roblox",
+  "Black Myth: Wukong"
 ];
 
 function useQuery() {
