@@ -132,7 +132,6 @@ function PurchasePage() {
             autoComplete="name"
           />
         </div>
-
         {/* Date of Birth */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <label htmlFor="dob" style={labelStyle}>Date of Birth</label>
@@ -148,7 +147,6 @@ function PurchasePage() {
             autoComplete="bday"
           />
         </div>
-
         {/* Gender */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <label style={labelStyle}>Gender</label>
@@ -162,7 +160,8 @@ function PurchasePage() {
                 onChange={handleChange}
                 required
                 style={radioInputStyle}
-              /> Male
+              />
+              {' '}Male
             </label>
             <label style={radioLabelStyle}>
               <input
@@ -173,7 +172,8 @@ function PurchasePage() {
                 onChange={handleChange}
                 required
                 style={radioInputStyle}
-              /> Female
+              />
+              {' '}Female
             </label>
             <label style={radioLabelStyle}>
               <input
@@ -184,7 +184,8 @@ function PurchasePage() {
                 onChange={handleChange}
                 required
                 style={radioInputStyle}
-              /> Other
+              />
+              {' '}Other
             </label>
           </div>
         </div>
