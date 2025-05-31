@@ -9,34 +9,14 @@ import React from 'react';
 function NavBar() {
   return (
     <nav
-      style={{
-        background: '#000',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
-        padding: '16px 0',
-        display: 'flex',
-        justifyContent: 'center'
-      }}
+      className="arcade-nav"
       aria-label="Main Navigation"
     >
-      <ul
-        style={{
-          listStyle: 'none',
-          display: 'flex',
-          gap: '48px',
-          margin: 0,
-          padding: 0,
-        }}
-      >
+      <ul className="arcade-nav-list">
         <li>
           <a
             href="#"
-            style={{
-              color: '#fff',
-              fontSize: '1.15rem',
-              textDecoration: 'none',
-              fontWeight: 500,
-              letterSpacing: '0.5px'
-            }}
+            className="nav-btn"
             tabIndex={0}
           >
             Home
@@ -45,13 +25,7 @@ function NavBar() {
         <li>
           <a
             href="#"
-            style={{
-              color: '#fff',
-              fontSize: '1.15rem',
-              textDecoration: 'none',
-              fontWeight: 500,
-              letterSpacing: '0.5px'
-            }}
+            className="nav-btn"
             tabIndex={0}
           >
             Store
