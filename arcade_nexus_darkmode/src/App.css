@@ -36,12 +36,14 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--primary);
+  /* Remove old background color: var(--primary) - let background show through image */
+  background: none !important;
   box-sizing: border-box;
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  z-index: 1; /* Ensure above the background video */
+  z-index: 2; /* Ensure above the background image and video */
+  font-family: 'Times New Roman', Times, serif !important;
 }
 
 /* Background video style */
