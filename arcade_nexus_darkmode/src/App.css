@@ -150,7 +150,7 @@ body {
   text-decoration: none;
   cursor: pointer;
   transition:
-    color 0.14s,
+    color 0.16s,
     background 0.18s,
     border-color 0.17s,
     box-shadow 0.2s;
@@ -159,19 +159,31 @@ body {
   z-index: 2;
 }
 
+/* On focus, highlight with orange border and orange text */
 .nav-btn:focus {
-  border-color: #ff8300;
-  box-shadow: 0 0 0 2.7px #ff830080;
-  color: #ff8300;
+  border-color: #ff6600;
+  box-shadow: 0 0 0 2.7px #ff660080;
+  color: #ff6600;
   outline: none;
 }
 
+/* On hover or active, set text and border to orange, keep button effect */
 .nav-btn:hover,
 .nav-btn:active {
   background: #222228;
-  color: #ff8300;
-  border-color: #ff8300;
+  color: #ff6600;
+  border-color: #ff6600;
   text-decoration: none;
+}
+
+/* Optional: Strong orange for greater visual strength on hover/focus on white displays */
+@media (hover: hover) {
+  .nav-btn:hover,
+  .nav-btn:focus {
+    color: #ff6600;
+    border-color: #ff6600;
+    background: #232322;
+  }
 }
 
 /* Extra guarantee of horizontal & centered nav layout for new .nav-btn style */
