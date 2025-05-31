@@ -53,12 +53,19 @@ function PurchasePage() {
     e.preventDefault();
     setSubmitted(true);
     alert(
-      "Purchase submitted!\n\n" +
-      `Name: ${form.name}\n` +
-      `Date of Birth: ${form.dob}\n` +
-      `Gender: ${form.gender}\n` +
-      `Email: ${form.email}\n` +
-      `Home Address: ${form.address}\n` +
+      "Purchase submitted!
+
+" +
+      `Name: ${form.name}
+` +
+      `Date of Birth: ${form.dob}
+` +
+      `Gender: ${form.gender}
+` +
+      `Email: ${form.email}
+` +
+      `Home Address: ${form.address}
+` +
       `Game: ${form.game}`
     );
   }
