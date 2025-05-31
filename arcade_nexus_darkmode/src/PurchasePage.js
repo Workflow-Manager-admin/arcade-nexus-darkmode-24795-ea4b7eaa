@@ -4,7 +4,11 @@ import { useLocation } from 'react-router-dom';
 // PUBLIC_INTERFACE
 /**
  * PurchasePage component for Arcade Nexus.
- * Displays a styled purchase form for user and pre-selects the chosen game.
+ * Implements a complete, styled purchase form including: name, DOB, gender, email, address, and a 10-game dropdown.
+ * The form is fully controlled with React state.
+ * Times New Roman and dark/modern Arcade Nexus theme is enforced throughout.
+ * Game dropdown is prefilled based on "game" URL param or defaults to first game.
+ * Submitting the form triggers an alert confirmation (demo only).
  */
 const GAME_LIST = [
   "Neon Drift",
@@ -27,6 +31,7 @@ function PurchasePage() {
   const query = useQuery();
   const initialGame = (() => {
     const param = query.get('game');
+    // Accept only games in list (case-sensitive, to match StorePage)
     if (param && GAME_LIST.includes(param)) return param;
     return GAME_LIST[0];
   })();
@@ -55,18 +60,18 @@ function PurchasePage() {
     alert(
       "Purchase submitted!
 
-" +
-      `Name: ${form.name}
-` +
-      `Date of Birth: ${form.dob}
-` +
-      `Gender: ${form.gender}
-` +
-      `Email: ${form.email}
-` +
-      `Home Address: ${form.address}
-` +
-      `Game: ${form.game}`
+"
+      + `Name: ${form.name}
+`
+      + `Date of Birth: ${form.dob}
+`
+      + `Gender: ${form.gender}
+`
+      + `Email: ${form.email}
+`
+      + `Home Address: ${form.address}
+`
+      + `Game: ${form.game}`
     );
   }
 
